@@ -27,7 +27,7 @@ window.RESUME = {
     contacts: [
       { icon: 'gh',   label: 'GitHub', value: 'github.com/1393489', href: 'https://github.com/1393489' },
       { icon: 'mail', label: '邮箱',   value: '2305792795@qq.com', href: 'mailto:2305792795@qq.com' },
-      { icon: 'link', label: '抖音', value: '39781792309', href: null },
+      { icon: 'link', label: '抖音', value: '@晨雨安', href: 'https://www.douyin.com/user/MS4wLjABAAAAgR8oYsu1UH0b9p8rb9CFbt0A8LrPV22_zUWUBNv2YXQ' },
       { icon: 'pin',  label: '所在地', value: '中国 · 浙江宁波', href: null }
     ]
   },
@@ -36,7 +36,7 @@ window.RESUME = {
   stats: [
     { value: '1',    label: 'GitHub 公开发布', note: 'memloom v0.1.0' },
     { value: '47',   label: '离线自检项',     note: '发布前全绿' },
-    { value: '154s', label: '代码直出成片',   note: '《对焦》无旁白' },
+    { value: '11',   label: '支原创知识短片', note: '抖音 @晨雨安 · 代码直出' },
     { value: '16',   label: 'C 语言学习周计划', note: '正在执行' }
   ],
 
@@ -124,11 +124,12 @@ window.RESUME = {
       metric: '发送回读核实 · 不掉登录态'
     },
     {
-      name: '知识短视频 · 自媒体运营',
+      name: '知识短视频 · 抖音自媒体「晨雨安」',
       subtitle: '自己选题、自己画、自己发的科普号',
       tags: ['Canvas', 'Remotion', 'ffmpeg', '内容运营'],
-      desc: '不只是做片子：把化学与科学概念做成 16:9 无旁白短片 —— 每个概念先找观众认得的形象，再由代码逐帧画出来、抽帧拼接联系表做目检，最后成片投放并持续运营这个账号。选题、脚本、分镜、判收、发布节奏都由我把控，实现与 AI 结对完成。代表作为 154 秒无旁白短片《对焦》。',
-      metric: '《对焦》154s · 持续更新中'
+      desc: '从零跑一个科学科普号：选题、脚本、分镜、逐帧代码绘制、合成、发布节奏全部自己把控，已发布 11 支 16:9 无旁白短片（Vibe 知识大赏 EP.06–EP.11，选题覆盖对焦/峰终定律/曝光效应/心理账户/锚定效应）。每支片子先给概念找一个观众认得的形象（孔的形状刻在糊掉的灯上、冰水实验解释记忆的结尾），再由代码逐帧画出来，最后抽帧拼联系表做目检。',
+      metric: '11 支作品 · 获赞 688 · 单条最高播放 2.9k',
+      link: { label: '抖音主页', href: 'https://www.douyin.com/user/MS4wLjABAAAAgR8oYsu1UH0b9p8rb9CFbt0A8LrPV22_zUWUBNv2YXQ' }
     }
   ],
 
