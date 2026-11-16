@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Kirito · AI 应用工程师</title>
+<meta name="description" content="Kirito 的个人简历：AI 应用工程、全栈开发、浏览器自动化与内容生产。" />
+<meta name="color-scheme" content="dark light" />
+<meta name="theme-color" content="#0a0e13" />
+<meta property="og:type" content="profile" />
+<meta property="og:title" content="Kirito · AI 应用工程师" />
+<meta property="og:description" content="把 AI 塞进真实工作流里 —— 要能上线、能维护、能自己跑。" />
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%234ea8ff'/%3E%3Cstop offset='1' stop-color='%237c5cff'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='url(%23g)'/%3E%3Ctext x='32' y='43' font-family='system-ui,sans-serif' font-size='32' font-weight='700' fill='%230a0e13' text-anchor='middle'%3EK%3C/text%3E%3C/svg%3E" />
+<link rel="stylesheet" href="assets/styles.css" />
+<script>
+  /* 提前定主题，避免白闪 */
+  try {
+    var t = localStorage.getItem('resume-theme');
+    if (!t) t = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', t);
+  } catch (e) {}
+</script>
+<script src="data/resume.js"></script>
+<script defer src="assets/app.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+
+<div class="bg" aria-hidden="true">
+  <span class="blob blob-1"></span>
+  <span class="blob blob-2"></span>
+  <span class="blob blob-3"></span>
+  <span class="mesh"></span>
+</div>
+
+<div class="layout">
+  <aside class="side">
+    <div class="side-inner">
+      <div class="avatar" id="avatar" aria-hidden="true"><span id="avatar-letter">K</span></div>
+
+      <h1 class="name" id="name">Kirito</h1>
+      <p class="latin" id="latin">K I R I T O</p>
+      <p class="role" id="role">AI 应用工程师 / 全栈开发</p>
+      <p class="status" id="status"><i class="dot"></i><span>开放机会 · 可远程</span></p>
+
+      <ul class="contact" id="contact"></ul>
+
+      <nav class="toc" aria-label="页面导航">
+        <p class="toc-title">目录</p>
+        <ul id="toc"></ul>
+      </nav>
+
+      <div class="side-actions">
+        <button class="btn btn-primary" id="print-btn" type="button">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9V3h12v6M6 18H4a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-2M6 14h12v7H6z"/></svg>
+          打印 / 存为 PDF
+        </button>
+        <button class="btn" id="theme-btn" type="button" aria-live="polite">
+          <span id="theme-icon" aria-hidden="true"></span><span id="theme-text">浅色</span>
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <main id="main">
+    <noscript>
+      <p class="fatal">这个页面用 JavaScript 把简历内容渲染出来。请在浏览器里开启 JS，或者直接把 <code>data/resume.js</code> 的内容抄进 HTML。</p>
+    </noscript>
+  </main>
+</div>
+
+<footer class="site-footer">
+  <p id="footer-note"></p>
+  <button class="ph-toggle" id="ph-toggle" type="button" title="按 P 键也可以切换">
+    显示示例占位内容
+  </button>
+</footer>
+
+<template id="icon-mail"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6.5A2.5 2.5 0 0 1 5.5 4h13A2.5 2.5 0 0 1 21 6.5v11A2.5 2.5 0 0 1 18.5 20h-13A2.5 2.5 0 0 1 3 17.5z"/><path d="m4 7 8 6 8-6"/></svg></template>
+<template id="icon-gh"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 19c-4 1.4-4-2.2-6-3m12 5v-3.4c0-1 .1-1.4-.5-2 2.8-.3 4.5-1.4 4.5-5a4 4 0 0 0-1.1-2.8 3.7 3.7 0 0 0-.1-2.8s-1.2-.3-3.8 1.4a9.3 9.3 0 0 0-5 0C6.4 3.8 5.2 4.1 5.2 4.1a3.7 3.7 0 0 0-.1 2.8A4 4 0 0 0 4 9.7c0 3.6 1.7 4.7 4.5 5-.5.6-.5 1.2-.5 2V20"/></svg></template>
+<template id="icon-link"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.5.5l2-2a5 5 0 0 0-7-7l-1.2 1.1"/><path d="M14 11a5 5 0 0 0-7.5-.5l-2 2a5 5 0 0 0 7 7L12.7 18"/></svg></template>
+<template id="icon-pin"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></template>
+</body>
+</html>
