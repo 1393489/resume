@@ -26,7 +26,7 @@ window.RESUME = {
     avatar: 'W', // 头像里显示的字；中文首字在这个渐变块里太糊，用拼音首字母
     contacts: [
       { icon: 'gh',   label: 'GitHub', value: 'github.com/1393489', href: 'https://github.com/1393489' },
-      { icon: 'mail', label: '邮箱',   value: 'your.name@example.com', href: 'mailto:your.name@example.com', ph: true },
+      { icon: 'mail', label: '邮箱',   value: '2305792795@qq.com', href: 'mailto:2305792795@qq.com' },
       { icon: 'link', label: '作品集', value: '填你的博客 / 掘金 / B 站主页', href: '#', ph: true },
       { icon: 'pin',  label: '所在地', value: '中国 · 浙江宁波', href: null }
     ]
