@@ -165,32 +165,37 @@
     return wrap;
   }
 
-  function buildAbout() {
-    var box = h('div', { class: 'about' });
-    (D.about || []).forEach(function (t) { box.append(h('p', { text: t })); });
-    return box;
-  }
+  /* 每个 build* 都接受一个 list（不传就取默认那一段数据），
+     这样同一个渲染器可以被多个区块复用 —— 加区块时不用改代码。 */
 
-  function buildSkills() {
-    var box = h('div', { class: 'skills' });
-    (D.skills || []).forEach(function (g) {
-      var list = h('div', { class: 'skill-list' });
-      (g.items || []).forEach(function (it) {
-        var lv = Math.max(0, Math.min(100, Number(it.level) || 0));
-        list.append(h('div', { class: 'skill reveal', style: '--v:' + lv + '%' },
-          h('span', { class: 'nm', text: it.name }),
-          h('span', { class: 'lv', text: lv }),
-          h('span', { class: 'track' }, h('span', { class: 'fill' }))
-        ));
-      });
-      box.append(h('div', { class: 'skill-group' }, h('h3', { text: g.group }), list));
+  function buildAbout(list) {
+    var box = h('div', { class: 'about' });
+    (list || D.about || []).forEach(function (t) {
+      box.append(h('p', { text: typeof t === 'string' ? t : (t && (t.text || t.title)) || '' }));
     });
     return box;
   }
 
-  function buildExperience() {
+  function buildSkills(list) {
+    var box = h('div', { class: 'skills' });
+    (list || D.skills || []).forEach(function (g) {
+      var ul = h('div', { class: 'skill-list' });
+      (g.items || []).forEach(function (it) {
+        var lv = Math.max(0, Math.min(100, Number(it.level) || 0));
+        ul.append(h('div', { class: 'skill reveal', style: '--v:' + lv + '%' },
+          h('span', { class: 'nm', text: it.name || '' }),
+          h('span', { class: 'lv', text: lv }),
+          h('span', { class: 'track' }, h('span', { class: 'fill' }))
+        ));
+      });
+      box.append(h('div', { class: 'skill-group' }, h('h3', { text: g.group || '' }), ul));
+    });
+    return box;
+  }
+
+  function buildExperience(list) {
     var box = h('div', { class: 'timeline' });
-    (D.experience || []).forEach(function (e) {
+    (list || D.experience || []).forEach(function (e) {
       var pts = h('ul', { class: 'tl-points' });
       (e.points || []).forEach(function (p) { pts.append(h('li', { text: p })); });
       box.append(h('article', { class: 'tl-item reveal', ph: !!e.ph },
@@ -204,13 +209,14 @@
     return box;
   }
 
-  function buildProjects() {
+  function buildProjects(list) {
     var box = h('div', { class: 'projects' });
-    (D.projects || []).forEach(function (p) {
+    (list || D.projects || []).forEach(function (p) {
+      if (typeof p === 'string') { p = { name: p }; }
       var tags = h('div', { class: 'tags' });
       (p.tags || []).forEach(function (t) { tags.append(h('span', { class: 'tag', text: t })); });
       var card = h('article', { class: 'card reveal', ph: !!p.ph },
-        h('div', { class: 'card-top' }, h('h3', { text: p.name }), h('span', { class: 'sub', text: p.subtitle || '' })),
+        h('div', { class: 'card-top' }, h('h3', { text: p.name || '' }), h('span', { class: 'sub', text: p.subtitle || '' })),
         h('p', { class: 'desc', text: p.desc || '' }),
         p.metric ? h('p', { class: 'metric', text: '· ' + p.metric }) : null,
         tags
@@ -224,9 +230,9 @@
     return box;
   }
 
-  function buildEducation() {
+  function buildEducation(list) {
     var box = h('div', { class: 'timeline' });
-    (D.education || []).forEach(function (e) {
+    (list || D.education || []).forEach(function (e) {
       var pts = h('ul', { class: 'tl-points' });
       (e.points || []).forEach(function (p) { pts.append(h('li', { text: p })); });
       box.append(h('article', { class: 'tl-item reveal', ph: !!e.ph },
@@ -239,12 +245,44 @@
     return box;
   }
 
-  function buildExtras() {
+  function buildExtras(list) {
     var box = h('div', { class: 'extras' });
-    (D.extras || []).forEach(function (b) {
+    (list || D.extras || []).forEach(function (b) {
       var ul = h('ul');
       (b.items || []).forEach(function (i) { ul.append(h('li', { text: i })); });
-      box.append(h('div', { class: 'block reveal', ph: !!b.ph }, h('h3', { text: b.title }), ul));
+      box.append(h('div', { class: 'block reveal', ph: !!b.ph }, h('h3', { text: b.title || '' }), ul));
+    });
+    return box;
+  }
+
+  /* 流动型区块：一行一条的流水账（每项可带日期），适合「最近在做的 / 读过的 / 拿到的证书」 */
+  function buildList(list) {
+    var box = h('div', { class: 'entries' });
+    (list || []).forEach(function (it) {
+      var when = '', what = '';
+      if (typeof it === 'string') { what = it; }
+      else { when = it.when || it.date || ''; what = it.text || it.title || ''; }
+      box.append(h('div', { class: 'entry reveal', ph: !!(it && it.ph) },
+        h('span', { class: 'when', text: when }),
+        h('span', { class: 'what' }, what, (it && it.href)
+          ? h('a', { class: 'inline-link', href: it.href, target: '_blank', rel: 'noopener noreferrer' }, ' →')
+          : null)
+      ));
+    });
+    return box;
+  }
+
+  /* 链接列表：{ label, href, note } */
+  function buildLinks(list) {
+    var box = h('div', { class: 'link-rows' });
+    (list || []).forEach(function (l) {
+      if (typeof l === 'string') { l = { label: l }; }
+      box.append(h('div', { class: 'link-row reveal', ph: !!l.ph },
+        l.href
+          ? h('a', { href: l.href, target: '_blank', rel: 'noopener noreferrer', text: l.label || l.href })
+          : h('span', { class: 'label', text: l.label || '' }),
+        l.note ? h('span', { class: 'note', text: l.note }) : null
+      ));
     });
     return box;
   }
@@ -344,24 +382,52 @@
   /* ---------------- 装配 ---------------- */
   fillSide();
 
-  if (D.about && D.about.length) {
-    main.append(section('about', '01', '概要', null, buildAbout));
-  }
-  if (D.skills && D.skills.length) {
-    main.append(section('skills', '02', '技能', '自评，非绝对', buildSkills));
-  }
-  if (D.experience && D.experience.length) {
-    main.append(section('experience', '03', '经历', null, buildExperience));
-  }
-  if (D.projects && D.projects.length) {
-    main.append(section('projects', '04', '项目', D.projects.length + ' 个', buildProjects));
-  }
-  if (D.education && D.education.length) {
-    main.append(section('education', '05', '教育', null, buildEducation));
-  }
-  if (D.extras && D.extras.length) {
-    main.append(section('extras', '06', '其他', null, buildExtras));
-  }
+  /* ---------------- 区块装配（数据驱动） ----------------
+     渲染器注册表：type → 渲染函数。要支持新形态，往这里加一个函数即可。
+     about 字符串段落 / skills 技能条 / timeline 时间线 / cards 卡片墙
+     blocks 分组小块 / list 一行一条（可带日期）/ links 链接列表 */
+  var REGISTRY = {
+    about: buildAbout,
+    skills: buildSkills,
+    timeline: buildExperience,
+    cards: buildProjects,
+    blocks: buildExtras,
+    list: buildList,
+    links: buildLinks
+  };
+
+  /* 没写 RESUME.sections 时用这份默认（顺序 / 标题 / 编号都和以前一样） */
+  var DEFAULT_SECTIONS = [
+    { id: 'about',      title: '概要', type: 'about' },
+    { id: 'skills',     title: '技能', type: 'skills', hint: '自评，非绝对' },
+    { id: 'experience', title: '经历', type: 'timeline' },
+    { id: 'projects',   title: '项目', type: 'cards', count: true },
+    { id: 'education',  title: '教育', type: 'timeline' },
+    { id: 'extras',     title: '其他', type: 'blocks' }
+  ];
+
+  var plan = (Array.isArray(D.sections) && D.sections.length) ? D.sections : DEFAULT_SECTIONS;
+  var picked = 0;
+
+  plan.forEach(function (cfg) {
+    if (!cfg || !cfg.type) return;
+    var data = cfg.items || D[cfg.from || cfg.id] || [];
+    if (!Array.isArray(data) || !data.length) return;   // 没内容就不出这个区块
+    picked += 1;
+    var render = REGISTRY[cfg.type];
+    if (!render) {
+      console.warn('[resume] 未知区块类型 "' + cfg.type + '"，先按 list 渲染');
+      render = buildList;
+    }
+    var num = cfg.num || (picked < 10 ? '0' + picked : String(picked));
+    var hint = cfg.hint != null ? cfg.hint : (cfg.count ? data.length + ' 个' : null);
+    try {
+      main.append(section(cfg.id || ('sec-' + picked), num, cfg.title || '', hint,
+        function () { return render(data); }));
+    } catch (err) {
+      console.warn('[resume] 区块 "' + (cfg.id || cfg.title) + '" 渲染失败：', err);
+    }
+  });
 
   main.prepend(buildHero());
 

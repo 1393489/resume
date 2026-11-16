@@ -156,6 +156,43 @@ window.RESUME = {
     }
   ],
 
+  /* 流动型数据：想加一条就往数组里 push 一行，页面自动多一条 */
+  notes: [
+    { when: '2026.11', text: '把简历站改成「加内容只动 resume.js」的结构：板块由数据决定，不再写死在代码里。' },
+    { when: '2026.11', text: '抖音知识短片更新到第 11 支（Vibe 知识大赏 EP.11《对焦》），累计获赞 688。' },
+    { when: '2026.10', text: 'memloom 发布 v0.1.0：47 项自检全绿，clone 即跑。' }
+  ],
+
+  reading: [
+    { label: '《C Primer Plus》第 6 版', note: '配合课程一起过' },
+    { label: '《C 语言程序设计·在线实践·微课视频》', note: '主教材' },
+    { label: '宁波大学化学专业发展指南', note: '自己整理：保研 / 考研 / 竞赛三条路径' }
+  ],
+
+  /* ===== 区块清单：决定页面上按什么顺序、出现哪些块 =====
+     想加一个新板块，就在这里加一行（改完刷新页面就出现），例如：
+
+       { id: 'notes',   title: '最近在做的', type: 'list' },
+       { id: 'reading', title: '在读 / 在听', type: 'links' },
+
+     type 可选：about（段落）/ skills（技能条）/ timeline（时间线）/
+                cards（卡片墙）/ blocks（分组小块）/ list（一行一条，可带日期）/
+                links（链接列表）
+       · 数据默认取 RESUME[同名 id]；也能用 from 指向别的字段，或用 items 直接写在这里
+       · 没写 num 就按顺序自动编号 01、02、03…
+       · 没内容的区块会自动隐藏，不会留空壳
+     把整段删掉也能跑：会回退到和现在一模一样的默认 6 个区块。 */
+  sections: [
+    { id: 'about',      title: '概要', type: 'about' },
+    { id: 'skills',     title: '技能', type: 'skills', hint: '自评，非绝对' },
+    { id: 'experience', title: '经历', type: 'timeline' },
+    { id: 'projects',   title: '项目', type: 'cards', count: true },
+    { id: 'education',  title: '教育', type: 'timeline' },
+    { id: 'extras',     title: '其他', type: 'blocks' },
+    { id: 'notes',      title: '最近在做的', type: 'list' },
+    { id: 'reading',    title: '在读 / 在听', type: 'links' }
+  ],
+
   footer: {
     note: '本站为纯静态单页，无构建、无第三方依赖、无追踪。',
     year: new Date().getFullYear()
