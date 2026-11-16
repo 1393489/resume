@@ -537,7 +537,8 @@ main { min-width: 0; }
 .card-link:hover { text-decoration: underline; text-underline-offset: 3px; }
 
 /* ---------- 教育 / 其他 ---------- */
-.extras { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+/* auto-fit：块数变了也自动铺满，不会右边空一格 */
+.extras { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
 .block {
   padding: 18px;
   border: 1px solid var(--stroke);
@@ -721,7 +722,7 @@ body.show-ph .stat.ph { box-shadow: inset 0 0 0 2px color-mix(in srgb, var(--acc
   .projects { grid-template-columns: 1fr 1fr; gap: 8pt; }
   .card, .block { box-shadow: none; background: #fff; border-color: #ccc; padding: 9pt; }
   .card:hover { transform: none; box-shadow: none; }
-  .extras { grid-template-columns: repeat(3, 1fr); gap: 8pt; }
+  .extras { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 8pt; }
   .fill { width: var(--v, 0%) !important; background: #333 !important; }
   .track { background: #e5e5e5; }
   a { color: #111 !important; }
