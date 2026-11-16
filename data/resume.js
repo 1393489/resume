@@ -27,7 +27,7 @@ window.RESUME = {
     contacts: [
       { icon: 'gh',   label: 'GitHub', value: 'github.com/1393489', href: 'https://github.com/1393489' },
       { icon: 'mail', label: '邮箱',   value: '2305792795@qq.com', href: 'mailto:2305792795@qq.com' },
-      { icon: 'link', label: '作品集', value: '填你的博客 / 掘金 / B 站主页', href: '#', ph: true },
+      { icon: 'link', label: '抖音', value: '39781792309', href: null },
       { icon: 'pin',  label: '所在地', value: '中国 · 浙江宁波', href: null }
     ]
   },
