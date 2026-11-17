@@ -1,6 +1,6 @@
 # 个人简历网站 · resume-site
 
-线上：**https://1393489.github.io/resume/**（GitHub Pages，`main` 分支根目录，推上去自动重建）
+线上：**https://krlito7.github.io/resume/**（GitHub Pages，`main` 分支根目录，推上去自动重建）
 
 纯静态单页简历。没有构建步骤、没有第三方依赖、没有网络请求 —— 双击 `index.html` 就能看。
 

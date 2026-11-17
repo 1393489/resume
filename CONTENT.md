@@ -2,7 +2,7 @@
 
 **只有一句话：改 `data/resume.js`，保存，刷新页面。** 不用构建、不用装东西、不用碰 `assets/` 里的代码。
 
-改完想发到网上（https://1393489.github.io/resume/ ），执行一次：
+改完想发到网上（https://krlito7.github.io/resume/ ），执行一次：
 
 ```powershell
 cd C:\Users\Administrator\Documents\deepseek-harness\default-workspace\resume-site

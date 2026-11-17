@@ -25,7 +25,7 @@ window.RESUME = {
     status: '2026 级 · 开放实习与合作',
     avatar: 'W', // 头像里显示的字；中文首字在这个渐变块里太糊，用拼音首字母
     contacts: [
-      { icon: 'gh',   label: 'GitHub', value: 'github.com/1393489', href: 'https://github.com/1393489' },
+      { icon: 'gh',   label: 'GitHub', value: 'github.com/KrLito7', href: 'https://github.com/KrLito7' },
       { icon: 'mail', label: '邮箱',   value: '2305792795@qq.com', href: 'mailto:2305792795@qq.com' },
       { icon: 'link', label: '抖音', value: '@晨雨安', href: 'https://www.douyin.com/user/MS4wLjABAAAAgR8oYsu1UH0b9p8rb9CFbt0A8LrPV22_zUWUBNv2YXQ' },
       { icon: 'pin',  label: '所在地', value: '中国 · 浙江宁波', href: null }
@@ -107,7 +107,7 @@ window.RESUME = {
       tags: ['Python', '开源', '零依赖', 'Obsidian'],
       desc: '把 DSH / Claude Code / Codex 的历史会话自动整理成可检索、可互相链接的 markdown 知识库：不依赖任何 LLM、不需要联网，装完就能用。我负责选题、需求与验收，实现在 AI 结对下完成。',
       metric: 'v0.1.0 · 47 项自检全绿',
-      link: { label: 'GitHub', href: 'https://github.com/1393489/memloom' }
+      link: { label: 'GitHub', href: 'https://github.com/KrLito7/memloom' }
     },
     {
       name: '大肥鱼 QQ 机器人',
@@ -152,7 +152,7 @@ window.RESUME = {
     },
     {
       title: '开源与社区',
-      items: ['memloom —— GitHub 公开发布，clone 即跑', 'GitHub：github.com/1393489']
+      items: ['memloom —— GitHub 公开发布，clone 即跑', 'GitHub：github.com/KrLito7']
     }
   ],
 
