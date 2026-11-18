@@ -19,7 +19,7 @@ window.RESUME = {
 
   profile: {
     name: '尉城源',
-    latin: 'W E I C H E N G Y U A N',
+    latin: 'WEI  CHENGYUAN',
     role: '宁波大学 · 化学（本科）在读',
     tagline: '把 AI 从「会聊天」用到「能干活」—— 环境自己配，结论自己验。',
     status: '2026 级 · 开放实习与合作',
