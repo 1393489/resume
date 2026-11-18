@@ -215,9 +215,17 @@
       if (typeof p === 'string') { p = { name: p }; }
       var tags = h('div', { class: 'tags' });
       (p.tags || []).forEach(function (t) { tags.append(h('span', { class: 'tag', text: t })); });
+      var pts = null;
+      if (p.points && p.points.length) {
+        pts = h('ul', { class: 'card-points' });
+        p.points.forEach(function (t) {
+          pts.append(h('li', { text: typeof t === 'string' ? t : (t && t.text) || '' }));
+        });
+      }
       var card = h('article', { class: 'card reveal', ph: !!p.ph },
         h('div', { class: 'card-top' }, h('h3', { text: p.name || '' }), h('span', { class: 'sub', text: p.subtitle || '' })),
         h('p', { class: 'desc', text: p.desc || '' }),
+        pts,
         p.metric ? h('p', { class: 'metric', text: '· ' + p.metric }) : null,
         tags
       );

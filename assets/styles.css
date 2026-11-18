@@ -489,7 +489,7 @@ main { min-width: 0; }
 }
 
 /* ---------- 项目卡 ---------- */
-.projects { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.projects { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; align-items: start; }
 .card {
   position: relative;
   display: flex;
@@ -510,6 +510,24 @@ main { min-width: 0; }
 .card h3 { font-size: 16.5px; font-weight: 700; }
 .card .sub { margin-top: 4px; font-size: 13px; color: var(--muted); }
 .card .desc { margin-top: 12px; font-size: 14px; color: var(--text-2); flex: 1; }
+.card .card-points { margin-top: 10px; display: grid; gap: 6px; }
+.card .card-points li {
+  position: relative;
+  padding-left: 14px;
+  font-size: 13.5px;
+  line-height: 1.65;
+  color: var(--text-2);
+}
+.card .card-points li::before {
+  content: '';
+  position: absolute;
+  left: 2px;
+  top: 0.72em;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--accent) 70%, transparent);
+}
 .card .metric {
   margin-top: 14px;
   font-size: 12px;
@@ -559,8 +577,7 @@ main { min-width: 0; }
 .entry .what .inline-link { color: var(--accent); text-decoration: none; margin-left: 2px; }
 .entry .what .inline-link:hover { text-decoration: underline; }
 
-.link-rows { display: grid; gap: 9px; }
-.link-row { display: flex; gap: 10px; align-items: baseline; flex-wrap: wrap; font-size: 15px; }
+.link-rows { display: grid; gap: 9px; }.link-row { display: flex; gap: 10px; align-items: baseline; flex-wrap: wrap; font-size: 15px; }
 .link-row a {
   color: var(--accent);
   text-decoration: none;
@@ -700,7 +717,7 @@ body.show-ph .stat.ph { box-shadow: inset 0 0 0 2px color-mix(in srgb, var(--acc
     --bg: #fff; --bg-2: #fff; --panel: #fff; --panel-solid: #fff;
     --text: #111; --text-2: #333; --muted: #666; --stroke: #ddd; --stroke-strong: #ccc;
   }
-  body { background: #fff !important; color: #111; font-size: 10.5pt; line-height: 1.55; }
+  body { background: #fff !important; color: #111; font-size: 10pt; line-height: 1.5; }
   .bg, .toc, .side-actions, .skip-link, .site-footer, .hero-actions { display: none !important; }
   .layout { display: block; max-width: none; padding: 0; gap: 0; }
   .side { position: static; }
@@ -719,7 +736,7 @@ body.show-ph .stat.ph { box-shadow: inset 0 0 0 2px color-mix(in srgb, var(--acc
   .contact svg { width: 9pt; height: 9pt; }
   /* 整节不允许断开会让超长区块把后面的内容顶到下一页、留一大片空白，
      所以只在「原子块」上 forbid，节本身允许自然分页。 */
-  .section { break-inside: auto; margin-bottom: 12pt; }
+  .section { break-inside: auto; margin-bottom: 10pt; }
   .section-head { break-after: avoid; break-inside: avoid; margin-bottom: 7pt; padding-bottom: 4pt; border-color: #ccc; }
   .section-head h2 { font-size: 13pt; }
   .hero, .stats, .stat, .tl-item, .card, .block { break-inside: avoid; }
@@ -750,7 +767,12 @@ body.show-ph .stat.ph { box-shadow: inset 0 0 0 2px color-mix(in srgb, var(--acc
   .tl-sum { margin-top: 5pt; }
   .reveal { opacity: 1 !important; transform: none !important; }
   .projects { grid-template-columns: 1fr 1fr; gap: 8pt; }
-  .card, .block { box-shadow: none; background: #fff; border-color: #ccc; padding: 9pt; }
+  .card, .block { box-shadow: none; background: #fff; border-color: #ccc; padding: 8pt; }
+  /* 项目卡在纸上更紧凑：描述、要点、标签都收紧，避免整张卡被推到下一页 */
+  .projects { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 7pt; }
+  .card .desc { margin-top: 6pt; }
+  .card .card-points { margin-top: 5pt; gap: 3.5pt; }
+  .tags { margin-top: 7pt; }
   .card:hover { transform: none; box-shadow: none; }
   .extras { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 8pt; }
   /* 流动型区块在纸上也要紧凑、不能跨页断开 */
