@@ -490,6 +490,8 @@ main { min-width: 0; }
 
 /* ---------- 项目卡 ---------- */
 .projects { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; align-items: start; }
+/* 卡片是奇数张时，最后一张横跨整行 —— 否则右下半格空着，还把版面撑高 */
+.projects > .card:last-child:nth-child(odd) { grid-column: 1 / -1; }
 .card {
   position: relative;
   display: flex;
