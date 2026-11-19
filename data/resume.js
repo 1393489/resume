@@ -34,8 +34,8 @@ window.RESUME = {
 
   // 首屏四个数字 —— 全部可核验，没有估的
   stats: [
-    { value: '1',    label: 'GitHub 公开发布', note: 'memloom v0.1.0' },
-    { value: '47',   label: '离线自检项',     note: '发布前全绿' },
+    { value: '1',    label: 'GitHub 公开发布', note: 'memloom v0.1.2' },
+    { value: '71',   label: '离线自检项',     note: '发布前全绿' },
     { value: '11',   label: '支原创知识短片', note: '抖音 @晨雨安 · 代码直出' },
     { value: '16',   label: 'C 语言学习周计划', note: '正在执行' }
   ],
@@ -107,11 +107,11 @@ window.RESUME = {
       tags: ['Python', '开源', '零依赖', 'Obsidian'],
       desc: '把 DSH / Claude Code / Codex 的历史会话整理成可检索、可双链的 markdown 知识库。我负责选题、需求与验收，实现在 AI 结对下完成。',
       points: [
-        '47 项离线自检覆盖解析、去重、双链、断链修复、增量复用与跨平台路径。',
-        '实测 119 个会话 → 191 页；冷跑 9.2s，二次运行 2.4s（复用 119，新解析 0）。',
+        '71 项离线自检覆盖解析、去重、双链、断链修复、增量复用与跨平台路径。',
+        '实测 131 个会话 → 201 页；冷跑 10.0s，二次运行 2.7s（复用 131，新解析 0）。',
         '零依赖：只用 Python 标准库，clone 即跑。'
       ],
-      metric: 'v0.1.0 · 47 项自检全绿',
+      metric: 'v0.1.2 · 71 项自检全绿',
       link: { label: 'GitHub', href: 'https://github.com/KrLito7/memloom' }
     },
     {
