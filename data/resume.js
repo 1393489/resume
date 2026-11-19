@@ -27,7 +27,7 @@ window.RESUME = {
     contacts: [
       { icon: 'gh',   label: 'GitHub', value: 'github.com/KrLito7', href: 'https://github.com/KrLito7' },
       { icon: 'mail', label: '邮箱',   value: '2305792795@qq.com', href: 'mailto:2305792795@qq.com' },
-      { icon: 'link', label: '抖音', value: '@晨雨安', href: 'https://www.douyin.com/user/MS4wLjABAAAAgR8oYsu1UH0b9p8rb9CFbt0A8LrPV22_zUWUBNv2YXQ' },
+      { icon: 'link', label: '抖音', value: '@晨雨安' },
       { icon: 'pin',  label: '所在地', value: '中国 · 浙江宁波', href: null }
     ]
   },
@@ -147,8 +147,7 @@ window.RESUME = {
         '11 支片子全部由代码逐帧绘制，没有素材库。',
         '累计获赞 688，单条最高播放 2939；选题覆盖对焦 / 峰终定律 / 曝光效应 / 心理账户 / 锚定效应。',
         '每支片子先做「找形象」再动笔：形象定错了，整支片子白画。'
-      ],
-      link: { label: '抖音主页', href: 'https://www.douyin.com/user/MS4wLjABAAAAgR8oYsu1UH0b9p8rb9CFbt0A8LrPV22_zUWUBNv2YXQ' }
+      ]
     },
     {
       name: '习惯打卡 · 网页 + 微信小程序',
