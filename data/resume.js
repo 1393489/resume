@@ -145,7 +145,7 @@ window.RESUME = {
       desc: '从零跑一个科学科普号：选题、脚本、分镜、逐帧绘制、合成、发布全自己把控。每支片子先给概念找一个观众认得的形象，再由代码画出来。',
       points: [
         '11 支片子全部由代码逐帧绘制，没有素材库。',
-        '累计获赞 688，单条最高播放 2939；选题覆盖对焦 / 峰终定律 / 曝光效应 / 心理账户 / 锚定效应。',
+        '累计获赞 706，单条最高播放 2939；选题覆盖对焦 / 峰终定律 / 曝光效应 / 心理账户 / 锚定效应。',
         '每支片子先做「找形象」再动笔：形象定错了，整支片子白画。'
       ],
       link: { label: '抖音主页', href: 'https://www.douyin.com/user/MS4wLjABAAAAEExWmjHUMHrEsZ2ouTjaChdMiBiREBxl8q2dtS0IhbPEIQg-8EV-gntBHmfDCYq2' }
